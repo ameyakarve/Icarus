@@ -1,6 +1,6 @@
 # Icarus
 
-Icarus is an JavaScript framework, that will enable you to write highly decoupled, yet structured web apps. Icarus is built on top of Twitter Flight. Icarus retains all the base functionalities of Flight. Icarus also uses a modified version of Laces.js for it's Model implementation. Some of the documentation has been borrowed from these two.
+Icarus is an JavaScript framework, that will enable you to write highly decoupled, yet structured web apps. Icarus is built on top of [Twitter Flight](https://github.com/twitter/flight/). Icarus retains all the base functionalities of Flight. Icarus also uses a modified version of [Laces.js](https://github.com/arendjr/laces.js) for it's Model implementation. Some of the documentation has been borrowed from these two.
 
 ## Why I wrote Icarus
 
@@ -94,7 +94,7 @@ define([
 
 ```
 
-Please see the Object and Array references for more details on these. 
+Please see the [Object](#objects) and [Array](#array) references for more details on these. 
 
 ### get
 
@@ -128,7 +128,7 @@ This method takes the `key` of the object to be removed as the arguement, and re
 
 ### bind
 
-This method takes two arguements, the first is the `type` of change in the data, and the second is `function` to bind to this change. The function is executed every time the event is called. For different types of bindings, Please look at the Binding Types section. 
+This method takes two arguements, the first is the `type` of change in the data, and the second is `function` to bind to this change. The function is executed every time the event is called. For different types of bindings, Please look at the [Binding Types](#bindings) section. 
 
 ```javascript
 /*global define*/
@@ -147,13 +147,14 @@ define([
 });
 
 ```
+
+<a id="bindings"></a>
 ## Binding Types
 
 The different types of bindings are: 
 1. **'add'**: called when a new entry is added. 
 1. **'remove'**: called when an entry is removed. 
 1. **'update'**: called when an existing property is changed. 
-1. **'change'**: called when an entry is added, removed or updated. 
 1. **'change:(key)'**: called when an entry with the key is changed
 
 The object passed has the following properties
@@ -190,8 +191,9 @@ define([
 
 ```
 
-The Event data can be found in `Event.originalEvent.detail.data`
+The Event data can be found in `Event.originalEvent.detail`
 
+<a id="objects"></a>
 ## Objects
 
 When an Object with key-value properties is passed to the Model, each property is stored as a sub-model. Each of these sub-models will implement the methods get, set, remove and bind. Furthermore, Events will be triggered to the Component DOM node when data from these sub-models is added, removed or updated. These sub-models can be accessed by using get functions, and set using set functions in chains. For example, 
@@ -223,8 +225,23 @@ define([
 
 ```
 
+<a id="array"></a>
 ## Arrays
 
 Arrays can be set as Model properties as well. You can modify array values directly, but it is adviced to use the `set` method to set values; If done directly, the bindings and events will not be executed. 
 
 **Note**: For arrays and objects, defining sub-attributes using functions that return a value will not work. Static values will have to be assigned. 
+
+## Some Thoughts
+
+1. Though data binding is possible through both function-binding and events, one should try to use the function-bindings just to change data around, and the events for DOM manipulation, Ajax calls, external libraries etc. 
+1. Do not include constantly changing objects such as DOM nodes into a Model. This will lead to a lot of events getting triggered, and data flying all over the place, and could freeze up the app. 
+1. The data binding I have opted for is rather loose, and gives one the flexibility to choose how his/her app workflow is going to be. 
+
+## What is next?
+
+1. Syncing the model data with a server through web-sockets with a polling fallback. 
+1. Dynamic data for sub-models
+1. Lots more I guess! Still thinking :)
+
+Do send in your feedback to ameya(dot)karve(at)gmail(dot)com. Special thanks to Nitin Madasu, Tanmai Gopal and Tom Hamshere for their help :)

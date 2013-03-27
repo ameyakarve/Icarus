@@ -104,11 +104,9 @@
                 }
                 if(event.key)
                 {
-                    var newEvent = new CustomEvent(event.name+':'+event.key, {'detail': event});
-                    var newEvent2 = new CustomEvent(event.name, {'detail': event});
-                    console.log(event);
+                    var newEvent = new CustomEvent(event.name, {detail: event});
                     document.getElementById(this.$node).dispatchEvent(newEvent);
-                    document.getElementById(this.$node).dispatchEvent(newEvent2);
+                    console.log(event);
                 }
             }
         }
@@ -117,7 +115,7 @@
     LacesObject.prototype.log = function(message) {
 
         if (typeof console !== 'undefined' && console.log) {
-            console.log('laces.js: ' + message);
+            console.log('laces.name' + message);
         }
     };
 
