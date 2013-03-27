@@ -196,7 +196,7 @@ The Event data can be found in `Event.originalEvent.detail`
 <a id="objects"></a>
 ## Objects
 
-When an Object with key-value properties is passed to the Model, each property is stored as a sub-model. Each of these sub-models will implement the methods get, set, remove and bind. Furthermore, Events will be triggered to the Component DOM node when data from these sub-models is added, removed or updated. These sub-models can be accessed by using get functions, and set using set functions in chains. For example, 
+When an Object with key-value properties is passed to the Model, each property is stored as a sub-model. Each of these sub-models will implement the methods get, set, remove and bind. Furthermore, Events will be triggered to the Component DOM node when data from these sub-models is added, removed or updated. These sub-models can be accessed by using get functions, and set using set functions in chains. Attributes could be accesed directly too, but use the set function to ensure proper binding and events. For example, 
 
 ```javascript
 /*global define*/
@@ -217,7 +217,9 @@ define([
 			this.get('name'); //Returns Ameya
 			this.get('keys'); //Returns sub-model
 			this.get('keys').get('a'); //Returns keys->a
+			//I could also write this.get('keys').a for the above line
 			this.get('keys').set('b', 5); //Sets keys->b to 5
+			//If I say this.get('keys').b=5, the bindings and events will not be triggered
 		});
 	}
 	return defineComponent(myComponent);
