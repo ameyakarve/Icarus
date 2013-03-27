@@ -1,6 +1,6 @@
 # Icarus
 
-Icarus is an JavaScript framework, that will enable you to write highly decoupled, yet structured web apps. Icarus is built on top of [Twitter Flight](https://github.com/twitter/flight/). Icarus retains all the base functionalities of Flight. Icarus also uses a modified version of [Laces.js](https://github.com/arendjr/laces.js) for it's Model implementation. Some of the documentation has been borrowed from these two.
+Icarus is a JavaScript framework, that will enable you to write highly decoupled, yet structured web apps. Icarus is built on top of [Twitter Flight](https://github.com/twitter/flight/). Icarus retains all the base functionalities of Flight. Icarus also uses a modified version of [Laces.js](https://github.com/arendjr/laces.js) for it's Model implementation. Some of the documentation has been borrowed from these two.
 
 ## Why I wrote Icarus
 
