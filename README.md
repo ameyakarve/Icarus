@@ -31,7 +31,7 @@ define([
 
 ### initModel
 
-This method initializes the Model object. It takes one arguement called options, which is a JS Object. The different options that can be set here are:
+This method initializes the Model object. It takes one argument called options, which is a JS Object. The different options that can be set here are:
 
 **store**: false by default. If set to true, the Model will sync with LocalStorage
 
@@ -49,7 +49,7 @@ This method removes the Model object. Call this method before tearing down the C
 
 ### set
 
-This method is used to add or change a property of the Model. It takes two arguements, the `key` and the `value` of the new data. 
+This method is used to add or change a property of the Model. It takes two arguments, the `key` and the `value` of the new data. 
 
 ```javascript
 /*global define*/
@@ -98,7 +98,7 @@ Please see the [Object](#objects) and [Array](#array) references for more detail
 
 ### get
 
-This method takes the property `key` as the arguement, and returns the corresponding value. 
+This method takes the property `key` as the argument, and returns the corresponding value. 
 
 ```javascript
 /*global define*/
@@ -124,11 +124,11 @@ define([
 
 ### remove
 
-This method takes the `key` of the object to be removed as the arguement, and removes the property from the Model. 
+This method takes the `key` of the object to be removed as the argument, and removes the property from the Model. 
 
 ### bind
 
-This method takes two arguements, the first is the `type` of change in the data, and the second is `function` to bind to this change. The function is executed every time the event is called. For different types of bindings, Please look at the [Binding Types](#bindings) section. 
+This method takes two arguments, the first is the `type` of change in the data, and the second is `function` to bind to this change. The function is executed every time the event is called. For different types of bindings, Please look at the [Binding Types](#bindings) section. 
 
 ```javascript
 /*global define*/
